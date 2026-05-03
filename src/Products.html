@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Factory</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+
+        /* 导航栏 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #2c3e50;
+            height: 60px;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo-img {
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .nav-menu a:hover {
+            background-color: #3498db;
+        }
+
+        .nav-menu a.active {
+            background-color: #3498db;
+            font-weight: bold;
+        }
+
+        /* 主体容器 */
+        .container {
+            max-width: 1200px;
+            margin: 80px auto 30px;
+            padding: 0 15px;
+        }
+
+        .page-title {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333; /* 调整标题颜色确保可见性 */
+        }
+
+        .products-section {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        /* 产品模块 */
+        .product-item {
+            background-color: #1a1a1a;
+            color: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .product-title {
+            font-size: 24px;
+            color: #f5c542;
+            margin-bottom: 20px;
+            border-left: 4px solid #f5c542;
+            padding-left: 12px;
+        }
+
+        /* 产品图容器：缩小尺寸 + 居中 */
+        .product-image-wrapper {
+            width: 60%; /* 缩小产品图宽度 */
+            margin: 0 auto 20px; /* 居中显示 */
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* 产品图 16:9 */
+        .product-main-img {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #000;
+            position: relative;
+            padding-top: 56.25%; /* 16:9 */
+        }
+
+        .product-main-img img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .product-main-img img:hover {
+            transform: scale(1.03);
+        }
+
+        /* 报告按钮组 */
+        .report-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        /* 报告按钮样式 */
+        .report-btn {
+            padding: 10px 22px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .report-btn:hover {
+            background-color: #f5c542;
+            color: #000;
+        }
+
+        .product-desc {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #eee;
+            text-align: center;
+        }
+
+        /* 图片放大弹窗 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+        }
+
+        .modal-img {
+            max-width: 95%;
+            max-height: 95%;
+            object-fit: contain;
+            border-radius: 6px;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .product-image-wrapper {
+                width: 100%;
+            }
+            .product-item {
+                padding: 20px;
+            }
+            .page-title {
+                font-size: 26px;
+            }
+            .product-title {
+                font-size: 20px;
+                text-align: center;
+            }
+            .report-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<!-- 导航栏 -->
+<div class="navbar">
+    <div class="nav-container">
+        <ul class="nav-menu">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="Products.html" class="active">Products</a></li>
+            <li><a href="About Us.html">About Us</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- 产品内容 -->
+<div class="container">
+    <h2 class="page-title">Our Products</h2>
+
+    <div class="products-section">
+        <!-- ====================== 产品 1 ====================== -->
+        <div class="product-item">
+            <h3 class="product-title">Product 1 - High Strength Bolt</h3>
+
+            <div class="product-image-wrapper">
+                <!-- 缩小后的产品图 16:9 -->
+                <div class="product-main-img">
+                    <img src="https://res.cloudinary.com/dvcepymev/image/upload/v1777785179/%E8%9E%BA%E6%9D%86%E5%B1%95%E7%A4%BA1_bwy3cy.jpg" onclick="openModal(this.src)" alt="Product Image">
+                </div>
+                <!-- 报告按钮 -->
+                <div class="report-buttons">
+                    <button class="report-btn" onclick="openModal('https://res.cloudinary.com/dvcepymev/image/upload/v1777785174/%E6%A3%80%E6%B5%8B%E6%8A%A5%E5%91%8A1%E8%8B%B1%E6%96%87_ejwziu.png')">English version of the inspection report</button>
+                    <button class="report-btn" onclick="openModal('https://res.cloudinary.com/dvcepymev/image/upload/v1777785171/%E6%A3%80%E6%B5%8B%E6%8A%A5%E5%91%8A1_atdfer.jpg')">Chinese version of the inspection report</button>
+                </div>
+            </div>
+
+            <div class="product-desc">
+                This product is a high-strength fastening bolt, widely used in construction, machinery and automotive industries.
+                It has excellent tensile strength, corrosion resistance and stability. All products have passed professional
+                testing and meet national and international quality standards.
+            </div>
+        </div>
+
+        <!-- ====================== 产品 2 ====================== -->
+        <div class="product-item">
+            <h3 class="product-title">Product 2 - Customized Screw</h3>
+
+            <div class="product-image-wrapper">
+                <div class="product-main-img">
+                    <img src="https://res.cloudinary.com/dvcepymev/image/upload/v1777785175/%E8%9E%BA%E6%9D%86%E5%B1%95%E7%A4%BA2_btcfng.jpg" onclick="openModal(this.src)" alt="Product Image">
+                </div>
+                <div class="report-buttons">
+                    <button class="report-btn" onclick="openModal('https://res.cloudinary.com/dvcepymev/image/upload/v1777785176/%E6%A3%80%E6%B5%8B%E6%8A%A5%E5%91%8A2%E8%8B%B1%E6%96%87_n4qmob.png')">English version of the inspection report</button>
+                    <button class="report-btn" onclick="openModal('https://res.cloudinary.com/dvcepymev/image/upload/v1777785172/%E6%A3%80%E6%B5%8B%E6%8A%A5%E5%91%8A2_o1usbg.jpg')">Chinese version of the inspection report</button>
+                </div>
+            </div>
+
+            <div class="product-desc">
+                Customized precision screw, supporting drawings and samples processing. High precision, stable size,
+                suitable for precision instruments, electronic equipment and mechanical assembly. Complete testing
+                reports are provided to ensure product qualification and reliability.
+            </div>
+        </div>
+
+        <!-- ====================== 产品 3 ====================== -->
+        <div class="product-item">
+            <h3 class="product-title">Product 3 - Nut & Fastener Kit</h3>
+
+            <div class="product-image-wrapper">
+                <div class="product-main-img">
+                    <img src="https://res.cloudinary.com/dvcepymev/image/upload/v1777785176/%E8%9E%BA%E6%9D%86%E5%B1%95%E7%A4%BA3_v214uo.jpg" onclick="openModal(this.src)" alt="Product Image">
+                </div>
+                <div class="report-buttons">
+                    <button class="report-btn" onclick="openModal('https://res.cloudinary.com/dvcepymev/image/upload/v1777785174/%E6%A3%80%E6%B5%8B%E6%8A%A5%E5%91%8A3%E8%8B%B1%E6%96%87_gwtayd.jpg')">English version of the inspection report</button>
+                    <button class="report-btn" onclick="openModal('https://res.cloudinary.com/dvcepymev/image/upload/v1777785174/%E6%A3%80%E6%B5%8B%E6%8A%A5%E5%91%8A3%E8%8B%B1%E6%96%87_gwtayd.jpg')">Chinese version of the inspection report</button>
+                </div>
+            </div>
+
+            <div class="product-desc">
+                Complete specifications of nuts and fastener kits, with complete types and stable matching.
+                Made of high-quality raw materials, with strong durability and long service life.
+                Suitable for industrial assembly, maintenance support and large-scale production lines.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 图片放大弹窗 -->
+<div class="modal" id="imgModal" onclick="closeModal()">
+    <img src="" class="modal-img" id="modalImg">
+</div>
+
+<script>
+    const modal = document.getElementById('imgModal');
+    const modalImg = document.getElementById('modalImg');
+
+    // 打开图片放大弹窗
+    function openModal(imgSrc) {
+        modal.style.display = 'flex';
+        modalImg.src = imgSrc;
+        document.body.style.overflow = 'hidden'; // 防止弹窗后页面滚动
+    }
+
+    // 关闭图片放大弹窗
+    function closeModal() {
+        modal.style.display = 'none';
+        modalImg.src = ''; // 清空图片地址
+        document.body.style.overflow = 'auto'; // 恢复页面滚动
+    }
+
+    // 按ESC键也能关闭弹窗（增强用户体验）
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.style.display === 'flex') {
+            closeModal();
+        }
+    });
+</script>
+</body>
+</html>
