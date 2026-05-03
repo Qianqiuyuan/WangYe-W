@@ -211,6 +211,86 @@
                 flex-direction: column;
             }
         }
+
+        /* ===== 新增：底部样式（与index.html保持一致） ===== */
+        /* 底部整体样式 */
+        .site-footer {
+            background-color: #000000;
+            padding: 50px 20px;
+            color: #ffffff;
+            font-family: "Microsoft YaHei", sans-serif;
+            border-top: 1px solid #333;
+            margin-top: 50px;
+        }
+        .footer-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        /* 左侧：企业信息 */
+        .footer-left {
+            flex: 1;
+            min-width: 280px;
+        }
+        .footer-left h2 {
+            font-size: 22px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .footer-left p {
+            font-size: 15px;
+            line-height: 2;
+            color: #eeeeee;
+            margin: 0;
+        }
+        /* 右侧：图标 + 返回顶部 */
+        .footer-right {
+            flex: 0 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 20px;
+            min-width: 280px;
+        }
+        /* 社交图标 */
+        .social-icons {
+            display: flex;
+            gap: 16px;
+        }
+        .social-icons img {
+            width: 36px;
+            height: 36px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .social-icons img:hover {
+            transform: scale(1.1);
+        }
+        /* 底部版权 */
+        .footer-copyright {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            text-align: center;
+            font-size: 14px;
+            color: #999;
+        }
+        /* 手机自适应（底部） */
+        @media (max-width: 768px) {
+            .footer-wrapper {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .footer-right {
+                align-items: center;
+            }
+        }
     </style>
 </head>
 
@@ -221,7 +301,7 @@
         <ul class="nav-menu">
             <li><a href="../index.html">Home</a></li>
             <li><a href="Products.html" class="active">Products</a></li>
-            <li><a href="About Us.html">About Us</a></li>
+            <li><a href="About Us.html">About</a></li>
         </ul>
     </div>
 </div>
@@ -243,7 +323,6 @@
                 <!-- 报告按钮 -->
                 <div class="report-buttons">
                     <button class="report-btn" onclick="openModal('https://res.cloudinary.com/dvcepymev/image/upload/v1777785174/%E6%A3%80%E6%B5%8B%E6%8A%A5%E5%91%8A1%E8%8B%B1%E6%96%87_ejwziu.png')">English version of the inspection report</button>
-                    <button class="report-btn" onclick="openModal('https://res.cloudinary.com/dvcepymev/image/upload/v1777785171/%E6%A3%80%E6%B5%8B%E6%8A%A5%E5%91%8A1_atdfer.jpg')">Chinese version of the inspection report</button>
                 </div>
             </div>
 
@@ -264,7 +343,6 @@
                 </div>
                 <div class="report-buttons">
                     <button class="report-btn" onclick="openModal('https://res.cloudinary.com/dvcepymev/image/upload/v1777785176/%E6%A3%80%E6%B5%8B%E6%8A%A5%E5%91%8A2%E8%8B%B1%E6%96%87_n4qmob.png')">English version of the inspection report</button>
-                    <button class="report-btn" onclick="openModal('https://res.cloudinary.com/dvcepymev/image/upload/v1777785172/%E6%A3%80%E6%B5%8B%E6%8A%A5%E5%91%8A2_o1usbg.jpg')">Chinese version of the inspection report</button>
                 </div>
             </div>
 
@@ -285,7 +363,6 @@
                 </div>
                 <div class="report-buttons">
                     <button class="report-btn" onclick="openModal('https://res.cloudinary.com/dvcepymev/image/upload/v1777788150/%E6%A3%80%E6%B5%8B%E6%8A%A5%E5%91%8A3%E8%8B%B1%E6%96%87_o20vfr.png')">English version of the inspection report</button>
-                    <button class="report-btn" onclick="openModal('https://res.cloudinary.com/dvcepymev/image/upload/v1777785174/%E6%A3%80%E6%B5%8B%E6%8A%A5%E5%91%8A3%E8%8B%B1%E6%96%87_gwtayd.jpg')">Chinese version of the inspection report</button>
                 </div>
             </div>
 
@@ -294,9 +371,38 @@
                 Made of high-quality raw materials, with strong durability and long service life.
                 Suitable for industrial assembly, maintenance support and large-scale production lines.
             </div>
+            <!-- ===== 新增：页面底部（与index.html一致） ===== -->
+            <div class="site-footer">
+                <div class="footer-wrapper">
+                    <!-- 左侧：公司信息 -->
+                    <div class="footer-left">
+                        <h2>Aifuyi(爱弗亿)</h2>
+                        <p>Company Address:Science and Technology Industrial Park, Yuhuan City, Taizhou City, Zhejiang Province, China</p>
+                        <p>WhatsApp/Tel:+86 18777323530</p>
+                        <p>E-mail:contact@aifuyi.com</p>
+                    </div>
+
+                    <!-- 右侧：社交图标 + 返回首页 -->
+                    <div class="footer-right">
+                        <div class="social-icons">
+                            <img src="https://res.cloudinary.com/dvcepymev/image/upload/v1777805358/facebook-logo_zrnwxo.png" alt="Facebook" onclick="openNewWindow('https://www.facebook.com/share/1LEUMamZcK/?mibextid=wwXIfr')">
+                            <img src="https://res.cloudinary.com/dvcepymev/image/upload/v1777805359/instagram-logo_gc497w.png" alt="Instagram" onclick="openNewWindow('https://www.instagram.com/wheelbolts_us?igsh=NTJpZGpjMjZscGlx&utm_source=qr')">
+                            <img src="https://res.cloudinary.com/dvcepymev/image/upload/v1777805358/linkedin-logo_z0euvj.png" alt="Linkedin" onclick="openNewWindow('https://www.linkedin.com/in/high-strength-bolts-custom-design-based-on-your-pictures-a0a88b3b3')">
+                            <img src="https://res.cloudinary.com/dvcepymev/image/upload/v1777805359/threads-logo_efnrdv.png" alt="threads" onclick="openNewWindow('https://www.threads.com/@wheelbolts_us?igshid=NTc4MTIwNjQ2YQ==')">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 底部版权 -->
+                <div class="footer-copyright">
+                    © 2026 爱弗亿 All Rights Reserved.
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+
 
 <!-- 图片放大弹窗 -->
 <div class="modal" id="imgModal" onclick="closeModal()">
@@ -327,6 +433,11 @@
             closeModal();
         }
     });
+
+    // ===== 新增：社交图标打开新窗口函数（与index.html一致） =====
+    function openNewWindow(url) {
+        window.open(url, '_blank', 'width=1000,height=800,scrollbars=yes');
+    }
 </script>
 </body>
 </html>
