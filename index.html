@@ -39,11 +39,6 @@
             position: relative;
         }
 
-        .logo-img {
-            height: 40px;
-            cursor: pointer;
-        }
-
         .nav-menu {
             list-style: none;
             display: flex;
@@ -260,24 +255,6 @@
             margin: 0 auto;
         }
 
-        /* 证书模块 */
-        .certificate-section {
-            margin-bottom: 60px;
-        }
-
-        .certificate-title {
-            font-size: 28px;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 30px;
-            color: #2c3e50;
-        }
-
-        .cert-item {
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
         .cert-item img {
             width: 100%;
             max-width: 800px;
@@ -290,16 +267,6 @@
 
         .cert-item img:hover {
             transform: scale(1.02);
-        }
-
-        .cert-desc {
-            margin-top: 15px;
-            font-size: 16px;
-            color: #333;
-            line-height: 1.6;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         /* 图片弹窗 */
@@ -357,6 +324,84 @@
                 max-width: 100%;
             }
         }
+        /* 底部整体样式 */
+        .site-footer {
+            background-color: #000000;
+            padding: 50px 20px;
+            color: #ffffff;
+            font-family: "Microsoft YaHei", sans-serif;
+            border-top: 1px solid #333;
+            margin-top: 50px;
+        }
+        .footer-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        /* 左侧：企业信息 */
+        .footer-left {
+            flex: 1;
+            min-width: 280px;
+        }
+        .footer-left h2 {
+            font-size: 22px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .footer-left p {
+            font-size: 15px;
+            line-height: 2;
+            color: #eeeeee;
+            margin: 0;
+        }
+        /* 右侧：图标 + 返回顶部 */
+        .footer-right {
+            flex: 0 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 20px;
+            min-width: 280px;
+        }
+        /* 社交图标 */
+        .social-icons {
+            display: flex;
+            gap: 16px;
+        }
+        .social-icons img {
+            width: 36px;
+            height: 36px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .social-icons img:hover {
+            transform: scale(1.1);
+        }
+        /* 底部版权 */
+        .footer-copyright {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            text-align: center;
+            font-size: 14px;
+            color: #999;
+        }
+        /* 手机自适应 */
+        @media (max-width: 768px) {
+            .footer-wrapper {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .footer-right {
+                align-items: center;
+            }
+        }
     </style>
 </head>
 
@@ -367,7 +412,7 @@
         <ul class="nav-menu">
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="src/Products.html">Products</a></li>
-            <li><a href="src/About%20Us.html">About Us</a></li>
+            <li><a href="src/About Us.html">About</a></li>
         </ul>
     </div>
 </div>
@@ -381,12 +426,11 @@
             <!-- 6图轮播 -->
             <div class="image-carousel">
                 <div class="carousel-slides">
-                    <div class="carousel-slide"><img src="https://res.cloudinary.com/dvcepymev/image/upload/v1777785176/%E7%94%9F%E4%BA%A7%E5%99%A8%E6%A2%B01_nczxvj.jpg" onclick="openModal(this.src)"></div>
+                    <div class="carousel-slide"><img src="https://res.cloudinary.com/dvcepymev/image/upload/v1777785174/CERTIFICATE%E8%AF%81%E4%B9%A6%E8%8B%B1%E6%96%87_v5afpk.jpg" onclick="openModal(this.src)"></div>
                     <div class="carousel-slide"><img src="https://res.cloudinary.com/dvcepymev/image/upload/v1777785171/%E5%B7%A5%E5%8E%82%E7%8E%AF%E5%A2%833_qym4wi.jpg" onclick="openModal(this.src)"></div>
                     <div class="carousel-slide"><img src="https://res.cloudinary.com/dvcepymev/image/upload/v1777785175/%E8%9E%BA%E6%9D%86%E6%A0%B7%E5%93%81%E5%B1%95%E7%A4%BA1_h6bzw8.jpg" onclick="openModal(this.src)"></div>
                     <div class="carousel-slide"><img src="https://res.cloudinary.com/dvcepymev/image/upload/v1777785175/%E6%89%93%E5%8C%85%E8%BD%A6%E9%97%B41_xapoxz.jpg" onclick="openModal(this.src)"></div>
                     <div class="carousel-slide"><img src="https://res.cloudinary.com/dvcepymev/image/upload/v1777785178/%E8%9E%BA%E6%9D%861_oe1wry.jpg" onclick="openModal(this.src)"></div>
-                    <div class="carousel-slide"><img src="https://res.cloudinary.com/dvcepymev/image/upload/v1777785174/CERTIFICATE%E8%AF%81%E4%B9%A6%E8%8B%B1%E6%96%87_v5afpk.jpg" onclick="openModal(this.src)"></div>
                 </div>
                 <button class="carousel-btn prev-btn" onclick="moveSlide(-1)">❮</button>
                 <button class="carousel-btn next-btn" onclick="moveSlide(1)">❯</button>
@@ -396,7 +440,6 @@
                     <span class="indicator" onclick="goToSlide(2)"></span>
                     <span class="indicator" onclick="goToSlide(3)"></span>
                     <span class="indicator" onclick="goToSlide(4)"></span>
-                    <span class="indicator" onclick="goToSlide(5)"></span>
                 </div>
             </div>
 
@@ -452,6 +495,33 @@
                 <video src="https://res.cloudinary.com/dvcepymev/video/upload/v1777785205/%E7%94%9F%E4%BA%A7%E5%99%A8%E6%A2%B0%E5%B1%95%E7%A4%BA4_jdzbky.mp4" controls></video>
             </div>
         </div>
+        <div class="site-footer">
+            <div class="footer-wrapper">
+                <!-- 左侧：公司信息 -->
+                <div class="footer-left">
+                    <h2>Aifuyi(爱弗亿)</h2>
+                    <p>Company Address:Science and Technology Industrial Park, Yuhuan City, Taizhou City, Zhejiang Province, China</p>
+                    <p>WhatsApp/Tel:+86 18777323530</p>
+                    <p>E-mail:contact@aifuyi.com</p>
+                </div>
+
+                <!-- 右侧：社交图标 + 返回首页 -->
+                <div class="footer-right">
+                    <div class="social-icons">
+                        <!-- 🔥 修改点1：替换onclick事件，使用openNewWindow函数并传入目标链接 -->
+                        <img src="https://res.cloudinary.com/dvcepymev/image/upload/v1777805358/facebook-logo_zrnwxo.png" alt="Facebook" onclick="openNewWindow('https://www.facebook.com/share/1LEUMamZcK/?mibextid=wwXIfr')">
+                        <img src="https://res.cloudinary.com/dvcepymev/image/upload/v1777805359/instagram-logo_gc497w.png" alt="Instagram" onclick="openNewWindow('https://www.instagram.com/wheelbolts_us?igsh=NTJpZGpjMjZscGlx&utm_source=qr')">
+                        <img src="https://res.cloudinary.com/dvcepymev/image/upload/v1777805358/linkedin-logo_z0euvj.png" alt="Linkedin" onclick="openNewWindow('https://www.linkedin.com/in/high-strength-bolts-custom-design-based-on-your-pictures-a0a88b3b3')">
+                        <img src="https://res.cloudinary.com/dvcepymev/image/upload/v1777805359/threads-logo_efnrdv.png" alt="threads" onclick="openNewWindow('https://www.threads.com/@wheelbolts_us?igshid=NTc4MTIwNjQ2YQ==')">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 底部版权 -->
+            <div class="footer-copyright">
+                © 2026 爱弗亿 All Rights Reserved.
+            </div>
+        </div>
     </section>
 </div>
 
@@ -464,20 +534,17 @@
     const modal = document.getElementById('imgModal');
     const modalImg = document.getElementById('modalImg');
     const navLinks = document.querySelectorAll('.nav-menu a');
-
     // 打开图片放大
     function openModal(imgSrc) {
         modal.style.display = 'flex';
         modalImg.src = imgSrc;
         document.body.style.overflow = 'hidden';
     }
-
     // 关闭图片放大
     function closeModal() {
         modal.style.display = 'none';
         document.body.style.overflow = 'auto';
     }
-
     // 导航高亮
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
@@ -485,7 +552,6 @@
             link.classList.add('active');
         });
     });
-
     // 轮播图
     let currentSlide = 0;
     const slides = document.querySelector('.carousel-slides');
@@ -500,17 +566,24 @@
         updateSlide();
         interval = setInterval(() => moveSlide(1), 3000);
     }
-
     function goToSlide(index) {
         clearInterval(interval);
         currentSlide = index;
         updateSlide();
         interval = setInterval(() => moveSlide(1), 3000);
     }
-
     function updateSlide() {
         slides.style.transform = `translateX(-${currentSlide * 100}%)`;
         indicators.forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
+    }
+
+    // 🔥 修改点2：新增打开新窗口函数
+    function openNewWindow(url) {
+        // 打开新窗口并跳转，参数说明：
+        // - url：目标链接
+        // - '_blank'：在新窗口打开
+        // - 第三个参数可以设置窗口属性（可选）
+        window.open(url, '_blank', 'width=1000,height=800,scrollbars=yes');
     }
 </script>
 </body>
